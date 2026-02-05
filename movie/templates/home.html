@@ -1,2 +1,24 @@
 <h1>Welcome to Home Page, {{name}}</h1>
 <h2>Welcome to About Page</h2>
+
+<div class ='container'>
+    <form action=''>
+        <div class='mb-3'>
+            <label for='SearchMovie' class='form-label'>
+                Search for Movie:
+            </label>
+            <input type='text' class='form-control' name='SearchMovie'/>
+        </div>
+        <button type ='submit' class='btn btn-primary'>Search</button>
+    </form>
+    <p>Searching for {{SearchTerm}}</p>
+        {% for movie in movies %}
+            <h2>{{ movie.title}}</h2>
+            <h3>{{ movie.description}}</h3>
+            <img src= '{{ movie.image.url }}'>
+            {% if movie.url %}
+                <a href='{{ movie.url}}'> Movie Link</a>
+            {% endif%}
+        {% endfor %}
+    <br/>
+</div>
